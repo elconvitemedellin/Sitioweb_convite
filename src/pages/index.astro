@@ -1,0 +1,486 @@
+---
+const convites = [
+  { nombre: "Cultural y Creativo", emoji: "🎭" },
+  { nombre: "Urbanista", emoji: "🏙️" },
+  { nombre: "Joven", emoji: "✊" },
+  { nombre: "Turismo", emoji: "🧭" },
+  { nombre: "CTIE", emoji: "🔬", descripcion: "Ciencia, Tecnología, Innovación y Educación" },
+  { nombre: "del Centro", emoji: "🏛️" },
+  { nombre: "Gestión Pública", emoji: "⚖️" },
+  { nombre: "DRAF", emoji: "🏃", descripcion: "Deporte, Recreación, Actividad Física y Aprovechamiento del Tiempo Libre" },
+  { nombre: "Paz, Seguridad y Convivencia", emoji: "🕊️" },
+  { nombre: "Educación", emoji: "📚" },
+  { nombre: "Mujeres", emoji: "♀️" },
+  { nombre: "Diversidades", emoji: "🏳️‍🌈" },
+  { nombre: "Ambientalistas", emoji: "🌱" },
+  { nombre: "Salud", emoji: "🩺" },
+  { nombre: "Rural", emoji: "🌾" },
+  { nombre: "Anti-Ruido", emoji: "🔇" },
+];
+
+const TALLY_UNIRSE = "https://tally.so/r/ja5VKQ";
+const TALLY_EVENTOS = "https://tally.so/r/Y5x8G6";
+const INSTAGRAM = "https://instagram.com/elconvite_med";
+const EMAIL = "contacto@elconvitemed.com";
+---
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+  <title>El Convite — Conversamos la ciudad. Actuamos por ella.</title>
+  <meta name="description" content="El Convite es un colectivo de Medellín que reúne ciudadanía y acción. Más de 20 convites temáticos conversando e interviniendo la ciudad." />
+
+  <!-- Open Graph para Meta -->
+  <meta property="og:title" content="El Convite — Conversamos la ciudad. Actuamos por ella." />
+  <meta property="og:description" content="Colectivo ciudadano de Medellín. Más de 20 convites temáticos conversando e interviniendo la ciudad." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://elconvitemed.com" />
+  <meta property="og:image" content="https://elconvitemed.com/og.png" />
+  <meta property="og:locale" content="es_CO" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="El Convite Medellín" />
+  <meta name="twitter:description" content="Conversamos la ciudad. Actuamos por ella." />
+
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <img src="/logo.png" alt="El Convite" class="logo" />
+      <h1 class="tagline">
+        Conversamos la ciudad.<br>
+        <span class="accent">Actuamos por ella.</span>
+      </h1>
+      <p class="hero-sub">
+        Un colectivo de Medellín. Más de 20 convites temáticos conversando, investigando e interviniendo la ciudad.
+      </p>
+      <div class="cta-group">
+        <a href={TALLY_UNIRSE} target="_blank" rel="noopener" class="btn btn-primary">
+          Únete a un Convite
+        </a>
+        <a href={TALLY_EVENTOS} target="_blank" rel="noopener" class="btn btn-secondary">
+          Asiste al próximo evento
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ¿Qué es? -->
+  <section class="que-es">
+    <div class="container">
+      <h2>¿Qué es El Convite?</h2>
+      <p class="lead">
+        En Antioquia, el convite es una tradición: vecinos que se reúnen para hacer juntos lo que solos no pueden.
+        Nosotros recuperamos esa idea para la ciudad: ciudadanas y ciudadanos que se encuentran a pensar Medellín
+        y a hacer cosas por ella.
+      </p>
+      <div class="verbos">
+        <div class="verbo"><span class="num">01</span><span class="word">Conversar</span></div>
+        <div class="verbo"><span class="num">02</span><span class="word">Investigar</span></div>
+        <div class="verbo"><span class="num">03</span><span class="word">Ejecutar</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Convites -->
+  <section class="convites" id="convites">
+    <div class="container">
+      <h2>Nuestros Convites</h2>
+      <p class="lead">
+        Cada Convite es una comunidad temática que conversa, investiga y propone acciones para Medellín.
+      </p>
+      <div class="grid-convites">
+        {convites.map((c) => (
+          <div class="convite-card">
+            <span class="convite-emoji">{c.emoji}</span>
+            <h3>{c.nombre}</h3>
+            {c.descripcion && <p class="convite-desc">{c.descripcion}</p>}
+          </div>
+        ))}
+      </div>
+      <p class="more">Y seguimos sumando…</p>
+    </div>
+  </section>
+
+  <!-- Cómo participar -->
+  <section class="participar">
+    <div class="container">
+      <h2>Cómo participar</h2>
+      <div class="participar-grid">
+        <a href={TALLY_UNIRSE} target="_blank" rel="noopener" class="participar-card">
+          <span class="emoji-big">🤝</span>
+          <h3>Únete a un Convite</h3>
+          <p>Escoge la comunidad temática que te interesa y empieza a participar.</p>
+          <span class="link-arrow">Quiero unirme →</span>
+        </a>
+        <a href={TALLY_EVENTOS} target="_blank" rel="noopener" class="participar-card">
+          <span class="emoji-big">📅</span>
+          <h3>Asiste a un evento</h3>
+          <p>Encuentros, foros y acciones abiertas a toda la ciudad.</p>
+          <span class="link-arrow">Confirmar asistencia →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <p class="footer-brand">El Convite</p>
+        <p class="footer-mini">Medellín, Colombia · {new Date().getFullYear()}</p>
+      </div>
+      <div class="footer-links">
+        <a href={INSTAGRAM} target="_blank" rel="noopener">@elconvite_med</a>
+        <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #0a0a0a;
+    --bg-alt: #111111;
+    --teal: #1ba39c;
+    --teal-bright: #20c0b8;
+    --brown: #6b4423;
+    --text: #f5f5f5;
+    --text-dim: #a0a0a0;
+    --border: #1f1f1f;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1.5rem;
+    background: radial-gradient(ellipse at top, rgba(27, 163, 156, 0.12) 0%, transparent 60%);
+    position: relative;
+  }
+
+  .hero-inner {
+    max-width: 800px;
+    text-align: center;
+  }
+
+  .logo {
+    max-width: 320px;
+    width: 70%;
+    height: auto;
+    margin-bottom: 2.5rem;
+  }
+
+  .tagline {
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
+    margin-bottom: 1.5rem;
+    font-weight: 900;
+  }
+
+  .accent {
+    color: var(--teal);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--text-dim);
+    max-width: 560px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .cta-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 1rem 1.75rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+  }
+
+  .btn-primary {
+    background: var(--teal);
+    color: #0a0a0a;
+  }
+
+  .btn-primary:hover {
+    background: var(--teal-bright);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    border-color: var(--teal);
+    color: var(--teal);
+  }
+
+  .btn-secondary:hover {
+    background: var(--teal);
+    color: #0a0a0a;
+    transform: translateY(-2px);
+  }
+
+  /* QUE ES */
+  .que-es {
+    padding: 6rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .que-es h2,
+  .convites h2,
+  .participar h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    color: var(--text-dim);
+    max-width: 680px;
+    margin: 0 auto 3rem;
+    text-align: center;
+  }
+
+  .verbos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .verbo {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem 1.25rem;
+    text-align: center;
+    transition: border-color 0.2s ease;
+  }
+
+  .verbo:hover {
+    border-color: var(--teal);
+  }
+
+  .verbo .num {
+    display: block;
+    color: var(--teal);
+    font-family: 'Fraunces', serif;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .verbo .word {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    font-weight: 700;
+  }
+
+  /* CONVITES */
+  .convites {
+    padding: 6rem 0;
+    background: var(--bg-alt);
+    border-top: 1px solid var(--border);
+  }
+
+  .grid-convites {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .convite-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem 1.25rem;
+    transition: all 0.2s ease;
+  }
+
+  .convite-card:hover {
+    border-color: var(--teal);
+    transform: translateY(-3px);
+  }
+
+  .convite-emoji {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .convite-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+    color: var(--teal);
+  }
+
+  .convite-desc {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    line-height: 1.4;
+  }
+
+  .more {
+    text-align: center;
+    color: var(--text-dim);
+    font-style: italic;
+  }
+
+  /* PARTICIPAR */
+  .participar {
+    padding: 6rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .participar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .participar-card {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.25s ease;
+    display: block;
+  }
+
+  .participar-card:hover {
+    border-color: var(--teal);
+    transform: translateY(-4px);
+  }
+
+  .emoji-big {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .participar-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--teal);
+  }
+
+  .participar-card p {
+    color: var(--text-dim);
+    margin-bottom: 1.25rem;
+  }
+
+  .link-arrow {
+    color: var(--teal);
+    font-weight: 600;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--border);
+    background: var(--bg-alt);
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-brand {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--teal);
+  }
+
+  .footer-mini {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-links a:hover {
+    color: var(--teal);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .verbos {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .cta-group .btn {
+      width: 100%;
+    }
+  }
+</style>

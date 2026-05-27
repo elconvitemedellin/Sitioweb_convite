@@ -1,0 +1,3 @@
+Reemplaza este archivo por el logo horizontal (Imagen 1: "El Convite" en teal sobre fondo transparente).
+Nombre exacto del archivo: logo.png
+Recomendado: PNG con fondo transparente, ~800px de ancho.
